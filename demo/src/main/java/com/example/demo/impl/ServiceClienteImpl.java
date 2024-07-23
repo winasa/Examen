@@ -14,6 +14,11 @@ import java.util.Optional;
 public class ServiceClienteImpl  implements ServiceCliente {
 
     private ClienteRepository clienteRepository;
+
+    public ServiceClienteImpl(ClienteRepository clienteRepository) {
+        this.clienteRepository = clienteRepository;
+    }
+
     @Override
     public List<ClientesEntity> getClientes() {
         return clienteRepository.findAll();
@@ -21,6 +26,6 @@ public class ServiceClienteImpl  implements ServiceCliente {
 
     @Override
     public Optional<ClientesEntity> getClientesById(ClientesDTO clientesDTO) {
-        return clienteRepository.findById(clientesDTO.getIdCliente());
+        return clienteRepository.findById(clientesDTO.getIdCliente().longValue());
     }
 }

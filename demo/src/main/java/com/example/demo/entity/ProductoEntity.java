@@ -10,12 +10,15 @@ import lombok.Data;
 public class ProductoEntity {
     @Id
     @Column( name = "idProducto",nullable = false)
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer idProducto;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long idProducto;
+
     @Column(name = "clave")
     private String clave;
+
     @Column( name = "descripcion")
     private String descripcion;
+
     @Column(name = "activo")
     private Boolean activo;
 }

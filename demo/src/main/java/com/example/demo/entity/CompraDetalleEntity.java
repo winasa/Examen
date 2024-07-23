@@ -11,18 +11,22 @@ import java.util.List;
 @Data
 public class CompraDetalleEntity {
 
-    @Id
-    @Column(name = "idCompraDetalle", nullable = false)
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer idCompraDetalle;
-    @Column(name = "idCodigoProducto")
-    private Integer idCodigoProducto;
-    @OneToMany
-    @JoinColumn(name = "comprasDetalle", referencedColumnName = "idCompras",nullable = false)
-    private List<ComprasEntity> comprasDetalle;
-    @ManyToOne
+    @EmbeddedId
+    private OrderDetailPK id;
+
+//    @OneToMany
+//    @JoinColumn(name = "comprasDetalle", referencedColumnName = "id",nullable = false)
+//    private List<ComprasEntity> comprasDetalle;
+
+/*    @ManyToOne
     @JoinColumn(name = "productoEntity", referencedColumnName = "idProducto",nullable = false)
-    private ProductoEntity productoEntity;
+    private ProductoEntity productoEntity;*/
+
     @Column(name = "cantidad")
-    private Integer cantidad;
+    private Long cantidad;
+
+    @ManyToOne
+    @JoinColumn(name = "order_id", insertable = false, updatable = false)
+    @MapsId("orderId")
+    private ComprasEntity compras;
 }

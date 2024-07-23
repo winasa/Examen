@@ -6,7 +6,7 @@ import lombok.Data;
 
 @Data
 public class ClientesDTO {
-    private Integer idCliente;
+    private Long idCliente;
     private String nombre;
     private Boolean activo;
 }

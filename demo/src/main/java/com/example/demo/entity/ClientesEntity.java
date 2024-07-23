@@ -11,9 +11,11 @@ public class ClientesEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer idCliente;
+    private Long idCliente;
+
     @Column(name = "nombre" ,nullable = false)
     private String nombre;
+
     @Column(name = "activo")
     private Boolean activo;
 }

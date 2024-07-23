@@ -26,8 +26,8 @@ public class ComprasDetalleController {
 
 
     @GetMapping("/getListaClienteByIdCliente")
-    public ResponseEntity<List<CompraDetalleEntity>> getListaClienteByIdCliente(@RequestBody ClientesDTO clientesDTO){
-        return new ResponseEntity< List<CompraDetalleEntity> >(comprasDellateService.getListaClienteByIdCliente(clientesDTO), HttpStatus.OK);
+    public ResponseEntity<List<CompraDetalleEntity>> getListaClienteByIdCliente(@RequestBody List<Long> clientesDTO){
+        return new ResponseEntity< List<CompraDetalleEntity> >((List<CompraDetalleEntity>) comprasDellateService.getListaClienteByIdCliente(clientesDTO).get(), HttpStatus.OK);
     }
 
 //    @GetMapping("/getClienteById")

@@ -1,12 +1,11 @@
 package com.example.demo.service;
 
 
-import com.example.demo.dto.ClientesDTO;
-import com.example.demo.dto.CompraDetalleDTO;
 import com.example.demo.entity.CompraDetalleEntity;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface ComprasDellateService {
-    List<CompraDetalleEntity> getListaClienteByIdCliente(ClientesDTO clientesDTO);
+    Optional<CompraDetalleEntity> getListaClienteByIdCliente(List<Long> clientesDTO);
 }

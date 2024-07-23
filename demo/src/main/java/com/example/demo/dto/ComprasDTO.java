@@ -7,7 +7,7 @@ import java.time.LocalDate;
 
 @Data
 public class ComprasDTO {
-    private Integer idCompras;
+    private Long id;
     private ClientesDTO idCliente;
     private String nombreCompras;
     private LocalDate fechaRegistro;
