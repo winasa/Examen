@@ -2,19 +2,24 @@ package com.example.demo.entity;
 
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
 import java.util.List;
 
 @Entity
 @Table(name = "compraDetalle")
-public class CompraDetalleEntity {
+@NoArgsConstructor
+@AllArgsConstructor
+public class CompraDetalleEntity implements Serializable {
 
     @EmbeddedId
     private OrderDetailPK id;
 
     @Column(name = "cantidad")
-    private Long cantidad;
+    private long cantidad;
 
     @ManyToOne
     @MapsId("comprasId")

@@ -11,7 +11,7 @@ import java.util.List;
 public interface CompraService {
     void crearListaCompras(List<ComprasEntity> listaCompras);
 
-    void deleteCompras(Integer idCompras);
+    void deleteCompras(long idCompras);
 
    List<ComprasEntity> getListaCompras();
 }

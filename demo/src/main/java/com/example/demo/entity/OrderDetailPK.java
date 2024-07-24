@@ -5,15 +5,17 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
 import lombok.Data;
 
+import java.io.Serializable;
+
 @Embeddable
 @Data
-public class OrderDetailPK {
+public class OrderDetailPK  implements Serializable {
 
     @Column(name = "compras_Id")
-    private Integer comprasId;
+    private long comprasId;
 
     @Column(name = "producto_id")
-    private Integer productId;
+    private long productId;
 
 
 }

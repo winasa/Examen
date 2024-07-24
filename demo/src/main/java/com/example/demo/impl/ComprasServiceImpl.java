@@ -25,11 +25,15 @@ public class ComprasServiceImpl implements CompraService {
 
     @Override
     public void crearListaCompras(List<ComprasEntity> listaCompras) {
+//        for (ComprasEntity lista: listaCompras ) {
+//            ComprasEntity comprasEntity = new ComprasEntity();
+//            comprasEntity.setNombreCompras(lista.getNombreCompras());
+//        }
         comprasRespository.saveAll(listaCompras);
     }
 
     @Override
-    public void deleteCompras(Integer idCompras) {
+    public void deleteCompras(long idCompras) {
         comprasRespository.deleteById(idCompras);
     }
 
