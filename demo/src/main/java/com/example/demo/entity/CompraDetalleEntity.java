@@ -8,7 +8,6 @@ import java.util.List;
 
 @Entity
 @Table(name = "compraDetalle")
-@Data
 public class CompraDetalleEntity {
 
     @EmbeddedId
@@ -18,8 +17,8 @@ public class CompraDetalleEntity {
     private Long cantidad;
 
     @ManyToOne
-    @JoinColumn(name = "id", insertable = false, updatable = false)
-    @MapsId("orderId")
+    @MapsId("comprasId")
+    @JoinColumn(name = "compras_id", insertable = true, updatable = true)
     private ComprasEntity compras;
 
 

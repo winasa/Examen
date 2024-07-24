@@ -19,7 +19,7 @@ public class ProductoController {
 
     @PostMapping("/deleteCompras")
     public ResponseEntity deleteCompras(@RequestBody ComprasEntity comprasEntity){
-        compraService.deleteCompras(comprasEntity.getId());
+        compraService.deleteCompras(comprasEntity.getComprasId());
         return new ResponseEntity<>(HttpStatus.OK);
     }
 }

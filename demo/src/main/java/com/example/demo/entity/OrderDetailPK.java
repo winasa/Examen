@@ -9,8 +9,8 @@ import lombok.Data;
 @Data
 public class OrderDetailPK {
 
-    @Column(name = "order_id")
-    private Integer orderId;
+    @Column(name = "compras_Id")
+    private Integer comprasId;
 
     @Column(name = "producto_id")
     private Integer productId;

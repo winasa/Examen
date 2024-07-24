@@ -3,6 +3,7 @@ package com.example.demo.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.springframework.aop.target.LazyInitTargetSource;
 
@@ -14,13 +15,14 @@ import java.util.List;
 @Entity
 @Table(name = "compras")
 @Data
+@Setter
 public class ComprasEntity implements Serializable {
 
 
     @Id
-    @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
+    @Column(name = "compras_Id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer comprasId;
 
 //    @OneToMany(fetch = FetchType.LAZY)
 //    @JoinColumn(name = "idCliente", referencedColumnName = "idCliente",nullable = false)
@@ -31,7 +33,7 @@ public class ComprasEntity implements Serializable {
     private List<CompraDetalleEntity> details;
 
 
-    @Column(name = "mombreCompras",nullable = false)
+    @Column(name = "nombreCompras",nullable = true)
     private String nombreCompras;
 
     @CreationTimestamp
