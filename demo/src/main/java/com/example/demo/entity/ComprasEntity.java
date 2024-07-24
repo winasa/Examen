@@ -6,6 +6,7 @@ import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
 import org.springframework.aop.target.LazyInitTargetSource;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -13,13 +14,13 @@ import java.util.List;
 @Entity
 @Table(name = "compras")
 @Data
-public class ComprasEntity {
+public class ComprasEntity implements Serializable {
 
 
     @Id
     @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer id;
 
 //    @OneToMany(fetch = FetchType.LAZY)
 //    @JoinColumn(name = "idCliente", referencedColumnName = "idCliente",nullable = false)
@@ -36,9 +37,6 @@ public class ComprasEntity {
     @CreationTimestamp
     @Column(name = "fechaRegistro", insertable = true,updatable = false)
     private LocalDateTime fechaRegistro;
-
-    @Column(name = "fechaUltimaAcualizacion")
-    private LocalDate fechaUltimaAcualizacion;
 
     @Column(name = "activo")
     private String activo;

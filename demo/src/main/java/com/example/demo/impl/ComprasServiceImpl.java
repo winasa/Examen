@@ -1,10 +1,16 @@
 package com.example.demo.impl;
 
+import com.example.demo.dto.ComprasDTO;
+import com.example.demo.entity.CompraDetalleEntity;
 import com.example.demo.entity.ComprasEntity;
+import com.example.demo.entity.OrderDetailPK;
 import com.example.demo.repository.ComprasRepository;
 import com.example.demo.service.CompraService;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 @Service
@@ -23,7 +29,12 @@ public class ComprasServiceImpl implements CompraService {
     }
 
     @Override
-    public void deleteCompras(Long idCompras) {
+    public void deleteCompras(Integer idCompras) {
         comprasRespository.deleteById(idCompras);
+    }
+
+    @Override
+    public List<ComprasEntity> getListaCompras() {
+        return comprasRespository.findAll();
     }
 }

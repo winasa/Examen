@@ -14,19 +14,25 @@ public class CompraDetalleEntity {
     @EmbeddedId
     private OrderDetailPK id;
 
-//    @OneToMany
+    @Column(name = "cantidad")
+    private Long cantidad;
+
+    @ManyToOne
+    @JoinColumn(name = "id", insertable = false, updatable = false)
+    @MapsId("orderId")
+    private ComprasEntity compras;
+
+
+
+
+
+
+
+    //    @OneToMany
 //    @JoinColumn(name = "comprasDetalle", referencedColumnName = "id",nullable = false)
 //    private List<ComprasEntity> comprasDetalle;
 
 /*    @ManyToOne
     @JoinColumn(name = "productoEntity", referencedColumnName = "idProducto",nullable = false)
     private ProductoEntity productoEntity;*/
-
-    @Column(name = "cantidad")
-    private Long cantidad;
-
-    @ManyToOne
-    @JoinColumn(name = "order_id", insertable = false, updatable = false)
-    @MapsId("orderId")
-    private ComprasEntity compras;
 }

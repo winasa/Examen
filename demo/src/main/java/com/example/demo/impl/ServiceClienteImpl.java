@@ -26,6 +26,6 @@ public class ServiceClienteImpl  implements ServiceCliente {
 
     @Override
     public Optional<ClientesEntity> getClientesById(ClientesDTO clientesDTO) {
-        return clienteRepository.findById(clientesDTO.getIdCliente().longValue());
+        return clienteRepository.findById(clientesDTO.getIdCliente().intValue());
     }
 }

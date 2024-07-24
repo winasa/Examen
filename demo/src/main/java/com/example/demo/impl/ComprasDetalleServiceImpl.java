@@ -18,6 +18,6 @@ public class ComprasDetalleServiceImpl implements ComprasDellateService {
     private ComprasDetalleRepsository comprasDetalleRepository;
     @Override
     public Optional<CompraDetalleEntity> getListaClienteByIdCliente(List<Long> listClientesDTO) {
-        return comprasDetalleRepository.findById(listClientesDTO.get(0).longValue());
+        return comprasDetalleRepository.findById(listClientesDTO.get(0).intValue());
     }
 }
