@@ -1,7 +1,7 @@
 package com.example.demo.controller;
 
 import com.example.demo.dto.ClientesDTO;
-import com.example.demo.entity.ClientesEntity;
+import com.example.demo.entity.ClienteEntity;
 import com.example.demo.service.ServiceCliente;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -25,13 +25,13 @@ public class ClientesController {
 
 
     @GetMapping("/getClientes")
-    public ResponseEntity<List<ClientesEntity>> gelListClientes(){
-        return new ResponseEntity< List< ClientesEntity > >(serviceClientes.getClientes(), HttpStatus.OK);
+    public ResponseEntity<List<ClienteEntity>> gelListClientes(){
+        return new ResponseEntity< List<ClienteEntity> >(serviceClientes.getClientes(), HttpStatus.OK);
     }
 
     @GetMapping("/getClienteById")
-    public ResponseEntity<ClientesEntity> gelListClientes(@RequestBody ClientesDTO clientesDTO){
-        return new ResponseEntity<ClientesEntity>(serviceClientes.getClientesById(clientesDTO).get(), HttpStatus.OK);
+    public ResponseEntity<ClienteEntity> gelListClientes(@RequestBody ClientesDTO clientesDTO){
+        return new ResponseEntity<ClienteEntity>(serviceClientes.getClientesById(clientesDTO).get(), HttpStatus.OK);
     }
 
 //    @GetMapping("/updateClienteById")
@@ -44,10 +44,11 @@ public class ClientesController {
 //        return new ResponseEntity< List< ClientesEntity > >(serviceClientes.deleteClienteById(clientesDTO), HttpStatus.OK);
 //    }
 //
-//    @PostMapping("/createCliente")
-//    public ResponseEntity<List<ClientesEntity>> createCliente(@RequestBody ClientesDTO clientesDTO){
-//        return new ResponseEntity< List< ClientesEntity > >(serviceClientes.createCliente(clientesDTO), HttpStatus.OK);
-//    }
+    @PostMapping("/createCliente")
+    public ResponseEntity createCliente(@RequestBody ClientesDTO clientesDTO){
+        serviceClientes.createCliente(clientesDTO);
+        return new ResponseEntity<>( HttpStatus.CREATED);
+    }
 
 
 }

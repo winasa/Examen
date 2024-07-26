@@ -1,9 +1,13 @@
 package com.example.demo.dto;
 
 
+import com.example.demo.entity.ClienteEntity;
 import com.example.demo.entity.CompraDetalleEntity;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.io.Serializable;
@@ -12,13 +16,13 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Data
-public class ComprasDTO{
-
-    private Integer id;
-    private String nombreCompras;
-    private LocalDateTime fechaRegistro;
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+public class ComprasDTO implements Serializable{
+    private Integer compraId;
+    private ClienteEntity cliente;
+    private List<CompraDetalleEntity> compraDetalle;
+    private String nombreCompra;
     private String activo;
-    private List<CompraDetalleEntity> details;
-
-
 }

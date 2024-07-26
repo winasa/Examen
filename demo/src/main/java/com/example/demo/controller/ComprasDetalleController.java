@@ -1,18 +1,11 @@
 package com.example.demo.controller;
 
-import com.example.demo.dto.ClientesDTO;
-import com.example.demo.dto.CompraDetalleDTO;
-import com.example.demo.entity.ClientesEntity;
 import com.example.demo.entity.CompraDetalleEntity;
+import com.example.demo.entity.CompraEntity;
 import com.example.demo.service.ComprasDellateService;
-import com.example.demo.service.ServiceCliente;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -21,14 +14,19 @@ import java.util.List;
 @RequestMapping("/api")
 public class ComprasDetalleController {
 
-    @Autowired
     private ComprasDellateService  comprasDellateService;
+
+
+    public ComprasDetalleController(ComprasDellateService comprasDellateService) {
+        this.comprasDellateService = comprasDellateService;
+    }
 
 
     @GetMapping("/getListaClienteByIdCliente")
     public ResponseEntity<List<CompraDetalleEntity>> getListaClienteByIdCliente(@RequestBody List<Long> clientesDTO){
         return new ResponseEntity< List<CompraDetalleEntity> >((List<CompraDetalleEntity>) comprasDellateService.getListaClienteByIdCliente(clientesDTO).get(), HttpStatus.OK);
     }
+
 
 //    @GetMapping("/getClienteById")
 //    public ResponseEntity<ClientesEntity> gelListClientes(@RequestBody ClientesDTO clientesDTO){

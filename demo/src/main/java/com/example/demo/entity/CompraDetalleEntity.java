@@ -2,39 +2,30 @@ package com.example.demo.entity;
 
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.io.Serializable;
-import java.util.List;
 
 @Entity
 @Table(name = "compraDetalle")
 @NoArgsConstructor
 @AllArgsConstructor
+@Data
+@Builder
 public class CompraDetalleEntity implements Serializable {
 
     @EmbeddedId
-    private OrderDetailPK id;
+    private BuyDetailPK id;
 
     @Column(name = "cantidad")
     private long cantidad;
 
     @ManyToOne
-    @MapsId("comprasId")
-    @JoinColumn(name = "compras_id", insertable = true, updatable = true)
-    private ComprasEntity compras;
+    @MapsId("compraId")
+    @ToString.Exclude
+    @JoinColumn(name = "compra_id", insertable = false, updatable = false)
+    private CompraEntity compra;
 
-
-
-
-
-
-
-    //    @OneToMany
-//    @JoinColumn(name = "comprasDetalle", referencedColumnName = "id",nullable = false)
-//    private List<ComprasEntity> comprasDetalle;
 
 /*    @ManyToOne
     @JoinColumn(name = "productoEntity", referencedColumnName = "idProducto",nullable = false)

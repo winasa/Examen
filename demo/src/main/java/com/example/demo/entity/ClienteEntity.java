@@ -7,15 +7,17 @@ import lombok.Data;
 @Table(name = "cliente")
 @Entity
 @Data
-public class ClientesEntity {
+public class ClienteEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long idCliente;
+    @PrimaryKeyJoinColumn
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer idCliente;
 
     @Column(name = "nombre" ,nullable = false)
     private String nombre;
 
     @Column(name = "activo")
     private Boolean activo;
+
 }
